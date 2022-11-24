@@ -4,9 +4,11 @@ import Button from "react-bootstrap/Button";
 import FormControl from "react-bootstrap/FormControl";
 import FormFloating from "react-bootstrap/FormFloating";
 import FormLabel from "react-bootstrap/FormLabel";
+import { useMedicationApi } from "../../../providers/MedicationProvider";
 
 function SearchForm() {
   const [searchValue, setSearchValue] = useState("");
+  const {getMedicationByName} = useMedicationApi()
 
   function onChangeSearch(event) {
     setSearchValue(event.target.value);
@@ -15,7 +17,7 @@ function SearchForm() {
   function submitForm(event) {
     event.preventDefault();
 
-    console.log(searchValue);
+    getMedicationByName(searchValue);
   }
 
   return (
