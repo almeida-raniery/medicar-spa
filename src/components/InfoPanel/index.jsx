@@ -1,11 +1,12 @@
 import InfoCard from "../InfoCard";
 
 function InfoPanel({
-  data: { name, activeIngredient, reference, category, company },
+  data: { name, medicationClass, activeIngredient, reference, category, company },
 }) {
   return (
     <section>
-      <InfoCard title = "Nome do Produto" info = {name} />
+      <h1>{name}</h1>
+      <InfoCard title = "Classe Terapêutica" info = {medicationClass} />
       <InfoCard title = "Princípio Ativo" info = {activeIngredient} />
       <InfoCard title = "Medicamento de Referência" info = {reference} />
       <InfoCard title = "Categoria Regulatória" info = {category} />
