@@ -1,22 +1,42 @@
 import { useState } from "react";
+import InputGroup from "react-bootstrap/InputGroup";
+import Button from "react-bootstrap/Button";
+import FormControl from "react-bootstrap/FormControl";
+import FormFloating from "react-bootstrap/FormFloating";
+import FormLabel from "react-bootstrap/FormLabel";
 
-function SearchForm(){
-  const [searchValue, setSearchValue] = useState();
+function SearchForm() {
+  const [searchValue, setSearchValue] = useState("");
 
   function onChangeSearch(event) {
-    setSearchValue(event.target.value)
+    setSearchValue(event.target.value);
   }
 
   function submitForm(event) {
     event.preventDefault();
+
+    console.log(searchValue);
   }
 
   return (
     <form onSubmit={submitForm}>
-      <input type="text" value={searchValue} onChange={onChangeSearch} />
-      <button type="submit" >Buscar</button>
+      <InputGroup>
+        <FormFloating>
+          <FormLabel htmlFor="search-box">Busca</FormLabel>
+          <FormControl
+            placeholder="Insira sua busca aqui"
+            name="search-box"
+            type="text"
+            value={searchValue}
+            onChange={onChangeSearch}
+          />
+        </FormFloating>
+        <Button type="submit" className="btn-primary">
+          Buscar
+        </Button>
+      </InputGroup>
     </form>
-  )
+  );
 }
 
-export default SearchForm
+export default SearchForm;
