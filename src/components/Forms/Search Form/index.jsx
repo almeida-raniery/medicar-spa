@@ -5,10 +5,12 @@ import FormControl from "react-bootstrap/FormControl";
 import FormFloating from "react-bootstrap/FormFloating";
 import FormLabel from "react-bootstrap/FormLabel";
 import { useMedicationApi } from "../../../providers/MedicationProvider";
+import { useNavigate } from "react-router-dom";
 
 function SearchForm() {
   const [searchValue, setSearchValue] = useState("");
-  const {getMedicationByName} = useMedicationApi()
+  const {getMedicationByName} = useMedicationApi();
+  const navigate = useNavigate();
 
   function onChangeSearch(event) {
     setSearchValue(event.target.value);
@@ -18,6 +20,7 @@ function SearchForm() {
     event.preventDefault();
 
     getMedicationByName(searchValue);
+    navigate("/");
   }
 
   return (
