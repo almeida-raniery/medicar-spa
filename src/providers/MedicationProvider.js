@@ -22,21 +22,12 @@ export function MedicationApiProvider({children}) {
     return resp.data
   }
 
-  async function getLeaflet(patientLeafletId) {
-    RequestAPI("/pdf", {
-      params:{
-        id: patientLeafletId
-      }
-    })
-  }
-
   return (
     <MedicationApiContext.Provider
       value={{
         searchResults,
         getMedicationByName,
         getMedicationByProcess,
-        getLeaflet
       }}
     >
       {children}
