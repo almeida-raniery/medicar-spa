@@ -6,21 +6,22 @@ import InfoCard from "../InfoCard";
 
 function InfoPanel() {
   const { processNumber } = useParams();
-  const { getMedicationById } = useMedicationApi();
+  const { getMedicationByProcess } = useMedicationApi();
 
   const [medicationData, setMedicationData] = useState({});
 
   useEffect(() => {
     async function getMedication() {
-      data = await getMedicationById(processNumber);
+      const medicationData = await getMedicationByProcess(processNumber);
+      console.log(medicationData);
 
-      setMedicationData(data);
+      setMedicationData(medicationData);
     }
 
     getMedication();
   }, []);
 
-  return (
+  return medicationData.codigoProduto ? (
     <section>
       <h1>{medicationData.nomeComercial}</h1>
       <InfoCard
@@ -40,8 +41,10 @@ function InfoPanel() {
         title="Nome do Fabricante"
         info={medicationData.empresa.razaoSocial}
       />
-      <DownloadButton />
+      <DownloadButton patientId={medicationData.codigoBulaPaciente} />
     </section>
+  ) : (
+    <p>Carregando...</p>
   );
 }
 

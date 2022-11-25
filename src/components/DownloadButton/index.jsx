@@ -1,6 +1,10 @@
-function DownloadButton(){
+import { useMedicationApi } from "../../providers/MedicationProvider"
+
+function DownloadButton({patientId}){
+  const {getLeaflet} = useMedicationApi();
+
   function onDownload(){
-    console.log("starting download...")
+    getLeaflet(patientId)
   }
 
   return (

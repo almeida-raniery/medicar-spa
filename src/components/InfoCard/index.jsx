@@ -1,4 +1,4 @@
-function InfoCard({data: {title, info}}){
+function InfoCard({title, info}){
   return (
     <div>
       <h3>{title}</h3>
