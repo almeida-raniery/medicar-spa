@@ -25,7 +25,7 @@ function SearchForm() {
   }
 
   return (
-      <Form onSubmit={submitForm}>
+      <Form onSubmit={submitForm} className="ms-auto">
         <InputGroup>
           <FormControl
             placeholder="Busca de medicamento"
@@ -34,7 +34,7 @@ function SearchForm() {
             onChange={onChangeSearch}
             id="searchBox"
           />
-          <Button type="submit">
+          <Button type="submit" className="btn-secondary">
             <FontAwesomeIcon icon={faMagnifyingGlass} />
           </Button>
         </InputGroup>
