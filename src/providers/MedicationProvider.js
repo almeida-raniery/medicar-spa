@@ -13,11 +13,13 @@ export function MedicationApiProvider({children}) {
       }
     })
 
-    setSearchResults(resp.data.content);
+    setSearchResults(resp.data.content)
   }
 
   async function getMedicationByProcess(processNumber) {
-    return await RequestAPI(`/medication/${processNumber}`);
+    const resp = await RequestAPI(`/medicamento/${processNumber}`)
+
+    return resp.data
   }
 
   async function getLeaflet(patientLeafletId) {
