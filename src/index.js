@@ -4,12 +4,15 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { MedicationApiProvider } from './providers/MedicationProvider';
+import { BrowserRouter } from 'react-router-dom';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <MedicationApiProvider>
-      <App />
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
     </MedicationApiProvider>
   </React.StrictMode>
 );
