@@ -1,8 +1,8 @@
-function Card({data: {name, company}}){
+function Card({data: {nomeProduto, razaoSocial}}){
   return (
     <div>
-      <h3>{name}</h3>
-      <p>{company}</p>
+      <h3>{nomeProduto}</h3>
+      <p>{razaoSocial}</p>
     </div>
   )
 }

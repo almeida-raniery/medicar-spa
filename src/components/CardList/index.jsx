@@ -1,17 +1,21 @@
+import { Container } from "react-bootstrap";
+import { useMedicationApi } from "../../providers/MedicationProvider";
 import Card from "../Card";
 
-function CardList({ data }) {
+function CardList() {
+  const { searchResults } = useMedicationApi();
+
   return (
-    <section>
+    <Container>
       <h1>Medicamentos</h1>
       <ul>
-        {data.map((medication) => (
-          <li>
-            <Card data={medication} />
-          </li>
+        {searchResults.map((medication) => (
+            <li key = {medication.idProduto} >
+              <Card data={medication} />
+            </li>
         ))}
       </ul>
-    </section>
+    </Container>
   );
 }
 
