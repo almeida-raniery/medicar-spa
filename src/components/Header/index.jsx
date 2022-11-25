@@ -8,10 +8,10 @@ function Header() {
   return (
     <Navbar>
       <Container>
-      <LinkContainer to="/">
-        <NavbarBrand>MedSearch</NavbarBrand>
-      </LinkContainer>
-      <SearchForm />
+        <LinkContainer to="/">
+          <NavbarBrand>MedSearch</NavbarBrand>
+        </LinkContainer>
+        <SearchForm />
       </Container>
     </Navbar>
   );
