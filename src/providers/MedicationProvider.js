@@ -13,19 +13,13 @@ export function MedicationApiProvider({children}) {
       }
     })
 
-    setSearchResults(resp.data.content);
+    setSearchResults(resp.data.content)
   }
 
   async function getMedicationByProcess(processNumber) {
-    return await RequestAPI(`/medication/${processNumber}`);
-  }
+    const resp = await RequestAPI(`/medicamento/${processNumber}`)
 
-  async function getLeaflet(patientLeafletId) {
-    RequestAPI("/pdf", {
-      params:{
-        id: patientLeafletId
-      }
-    })
+    return resp.data
   }
 
   return (
@@ -34,7 +28,6 @@ export function MedicationApiProvider({children}) {
         searchResults,
         getMedicationByName,
         getMedicationByProcess,
-        getLeaflet
       }}
     >
       {children}
