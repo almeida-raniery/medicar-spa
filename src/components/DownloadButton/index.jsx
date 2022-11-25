@@ -1,15 +1,13 @@
-import { useMedicationApi } from "../../providers/MedicationProvider"
-
-function DownloadButton({patientId}){
-  const {getLeaflet} = useMedicationApi();
-
-  function onDownload(){
-    getLeaflet(patientId)
-  }
-
+function DownloadButton({ patientId }) {
   return (
-    <button onClick={onDownload}>Download</button>
-  )
+    <a
+      href={`https://bula.vercel.app/pdf?id=${patientId}`}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Download
+    </a>
+  );
 }
 
-export default DownloadButton
+export default DownloadButton;
