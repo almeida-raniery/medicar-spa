@@ -1,7 +1,10 @@
-function Card({data: {nomeProduto, razaoSocial}}){
+import { Link } from "react-router-dom";
+
+function Card({data: {nomeProduto, razaoSocial, numProcesso}}){
   return (
     <div>
-      <h3>{nomeProduto}</h3>
+      <Link to={`/medicamento/${numProcesso}`}> <h3>{nomeProduto}</h3> </Link>
+      
       <p>{razaoSocial}</p>
     </div>
   )
