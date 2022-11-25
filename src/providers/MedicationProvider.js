@@ -13,23 +13,19 @@ export function MedicationApiProvider({children}) {
       }
     })
 
-    setSearchResults(resp.data.content)
+    setSearchResults(resp.data.content);
   }
 
   async function getMedicationByProcess(processNumber) {
-    const resp = await RequestAPI(`/medication/${processNumber}`)
-
-    console.log(resp);
+    return await RequestAPI(`/medication/${processNumber}`);
   }
 
   async function getLeaflet(patientLeafletId) {
-    const resp = await RequestAPI("/pdf", {
+    RequestAPI("/pdf", {
       params:{
         id: patientLeafletId
       }
     })
-
-    console.log(resp);
   }
 
   return (
