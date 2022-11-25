@@ -1,13 +1,16 @@
+import { Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-function Card({data: {nomeProduto, razaoSocial, numProcesso}}){
+function Card({ data: { nomeProduto, razaoSocial, numProcesso } }) {
   return (
-    <div>
-      <Link to={`/medicamento/${numProcesso}`}> <h3>{nomeProduto}</h3> </Link>
-      
+    <Container className="my-2">
+      <Link to={`/medicamento/${numProcesso}`}>
+        <h4>{nomeProduto}</h4>
+      </Link>
+
       <p>{razaoSocial}</p>
-    </div>
-  )
+    </Container>
+  );
 }
 
 export default Card;
