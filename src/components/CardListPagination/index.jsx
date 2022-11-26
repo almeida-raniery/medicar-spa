@@ -9,10 +9,10 @@ function CardListPagination() {
   }
 
   return (
-    <Pagination size="lg">
+    <Pagination size="lg" className="d-flex justify-content-center">
       {console.log(searchResults)}
       {!searchResults.first && <Pagination.First onClick={()=>onClickNav(1)}/>}
-      {!searchResults.first && <Pagination.Prev onClick={()=>onClickNav(searchResults.number - 2)}/>}
+      {!searchResults.first && <Pagination.Prev onClick={()=>onClickNav(searchResults.number)}/>}
       {!searchResults.last && <Pagination.Next onClick={()=>onClickNav(searchResults.number + 2)}/>}
       {!searchResults.last && <Pagination.Last onClick={()=>onClickNav(searchResults.totalPages)}/>}
     </Pagination>
