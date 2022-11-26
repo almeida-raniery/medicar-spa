@@ -18,7 +18,6 @@ function InfoPanel() {
   useEffect(() => {
     async function getMedication() {
       const medicationData = await getMedicationByProcess(processNumber);
-      console.log(medicationData);
 
       setMedicationData(medicationData);
     }
