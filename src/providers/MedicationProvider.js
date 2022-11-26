@@ -3,34 +3,42 @@ import RequestAPI from "../services/API";
 
 const MedicationApiContext = createContext();
 
-export function MedicationApiProvider({children}) {
+export function MedicationApiProvider({ children }) {
   const [searchResults, setSearchResults] = useState({});
-  const [isSearching, setIsSearching] = useState(false)
+  const [isSearching, setIsSearching] = useState(false);
+  const [isTimeOut, setIsTimeOut] = useState(false);
 
-  async function getMedicationByName(medicationName, page=1) {
-    setIsSearching(true)
+  async function getMedicationByName(medicationName, page = 1) {
+    setIsSearching(true);
 
-    const resp = await RequestAPI("/pesquisar", {
-      params:{
-        nome: medicationName,
-        pagina: page,
-      }
-    })
+    try {
+      const resp = await RequestAPI("/pesquisar", {
+        params: {
+          nome: medicationName,
+          pagina: page,
+        },
+      });
 
-    setSearchResults({medicationName, ...resp.data})
-    setIsSearching(false)
+      setSearchResults({ medicationName, ...resp.data });
+    } catch (err) {
+      setIsTimeOut(true);
+      console.log(err)
+    }
+
+    setIsSearching(false);
   }
 
   async function getMedicationByProcess(processNumber) {
-    const resp = await RequestAPI(`/medicamento/${processNumber}`)
+    const resp = await RequestAPI(`/medicamento/${processNumber}`);
 
-    return resp.data
+    return resp.data;
   }
 
   return (
     <MedicationApiContext.Provider
       value={{
         isSearching,
+        isTimeOut,
         searchResults,
         getMedicationByName,
         getMedicationByProcess,
@@ -39,7 +47,6 @@ export function MedicationApiProvider({children}) {
       {children}
     </MedicationApiContext.Provider>
   );
-
 }
 
-export const useMedicationApi = () => useContext(MedicationApiContext)
+export const useMedicationApi = () => useContext(MedicationApiContext);
