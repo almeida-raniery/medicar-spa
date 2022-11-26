@@ -1,9 +1,11 @@
+import Container from "react-bootstrap/Container";
+
 function InfoCard({title, info}){
   return (
-    <div>
+    <Container className="border-bottom mb-2 shadow-sm">
       <h3>{title}</h3>
       <p>{info}</p>
-    </div>
+    </Container>
   )
 }
 

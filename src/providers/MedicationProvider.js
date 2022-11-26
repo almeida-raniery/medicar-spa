@@ -4,16 +4,17 @@ import RequestAPI from "../services/API";
 const MedicationApiContext = createContext();
 
 export function MedicationApiProvider({children}) {
-  const [searchResults, setSearchResults] = useState([]);
+  const [searchResults, setSearchResults] = useState({content:[]});
 
-  async function getMedicationByName(medicationName) {
+  async function getMedicationByName(medicationName, page=1) {
     const resp = await RequestAPI("/pesquisar", {
       params:{
-        nome: medicationName
+        nome: medicationName,
+        pagina: page,
       }
     })
 
-    setSearchResults(resp.data.content)
+    setSearchResults({medicationName, ...resp.data})
   }
 
   async function getMedicationByProcess(processNumber) {
