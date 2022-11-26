@@ -1,11 +1,10 @@
 import { Button, Container } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCloudArrowDown } from "@fortawesome/free-solid-svg-icons"
+import { faCloudArrowDown } from "@fortawesome/free-solid-svg-icons";
 
 function DownloadButton({ patientId }) {
   return (
-    <Container style={{textAlign:"center"}}>
-      <Button className="btn-light border border-primary text-primary py-3 px-0 my-4">
+      <Button className="btn-light border border-primary text-primary py-3 px-0 my-4 ml-2">
         <a
           className="h4 p-3"
           style={{ textDecoration: "none" }}
@@ -14,11 +13,9 @@ function DownloadButton({ patientId }) {
           rel="noopener noreferrer"
         >
           Bula
-          {" "}
-          <FontAwesomeIcon icon={faCloudArrowDown} />
+          <FontAwesomeIcon className="mx-2" icon={faCloudArrowDown} />
         </a>
       </Button>
-    </Container>
   );
 }
 

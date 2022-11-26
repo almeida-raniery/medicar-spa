@@ -1,15 +1,18 @@
 import { useEffect, useState } from "react";
-import { Col, Row, Spinner } from "react-bootstrap";
+import { Button, Col, Row, Spinner } from "react-bootstrap";
 import Container from "react-bootstrap/Container";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useMedicationApi } from "../../providers/MedicationProvider";
 import DownloadButton from "../DownloadButton";
 import InfoCard from "../InfoCard";
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function InfoPanel() {
   const { processNumber } = useParams();
   const { getMedicationByProcess } = useMedicationApi();
-
+  
+  const navigate = useNavigate();
   const [medicationData, setMedicationData] = useState({});
 
   useEffect(() => {
@@ -25,9 +28,14 @@ function InfoPanel() {
 
   return medicationData.nomeComercial ? (
     <Container className="col-md-6 mt-4">
-      <h1 className="mb-0 bg-secondary p-2 shadow text-light">
-        {medicationData.nomeComercial}
-      </h1>
+      <Container className="mb-0 bg-secondary p-2 shadow text-light">
+        <Row className="g-0 align-items-center justify-content-start">
+          <Button onClick={()=>navigate("/")} className="btn-secondary col-1 p-1">
+            <FontAwesomeIcon icon={faArrowLeft} />
+          </Button>
+          <h1 className="col-9">{medicationData.nomeComercial}</h1>
+        </Row>
+      </Container>
       <Container
         className="mb-3 border border-3 border-top-0 px-1 pt-3 border-secondary"
         style={{ textAlign: "left" }}
@@ -52,7 +60,9 @@ function InfoPanel() {
           title="Nome do Fabricante:"
           info={medicationData.empresa.razaoSocial}
         />
-        <DownloadButton patientId={medicationData.codigoBulaPaciente} />
+        <Container className="text-center">
+          <DownloadButton patientId={medicationData.codigoBulaPaciente} />
+        </Container>
       </Container>
     </Container>
   ) : (
@@ -60,8 +70,8 @@ function InfoPanel() {
       className="d-flex flex-column justify-content-center"
       style={{ height: "100vh" }}
     >
-      <Row className="justify-content-center" >
-        <Spinner className="my-2"/>
+      <Row className="justify-content-center">
+        <Spinner className="my-2" />
         <h4>Carregando...</h4>
       </Row>
     </Container>
