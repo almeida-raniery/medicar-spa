@@ -12,7 +12,8 @@ export function MedicationApiProvider({children}) {
 
     const resp = await RequestAPI("/pesquisar", {
       params:{
-        nome: medicationName
+        nome: medicationName,
+        pagina: page,
       }
     })
 
