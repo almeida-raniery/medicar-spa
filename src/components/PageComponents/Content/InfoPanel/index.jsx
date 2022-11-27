@@ -1,10 +1,7 @@
-import { useEffect, useState } from "react";
-import { Row, Spinner } from "react-bootstrap";
 import Container from "react-bootstrap/Container";
-import { useParams } from "react-router-dom";
-import { useMedicationApi } from "../../providers/MedicationProvider";
-import DownloadButton from "../DownloadButton";
-import InfoCard from "../InfoCard";
+import DownloadButton from "../../../Buttons/DownloadButton";
+import InfoCard from "../../../Cards/InfoCard";
+
 
 function InfoPanel({
   data: {

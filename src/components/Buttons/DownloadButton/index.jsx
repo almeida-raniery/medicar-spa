@@ -1,6 +1,6 @@
-import { Button, Container } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCloudArrowDown } from "@fortawesome/free-solid-svg-icons";
+import Button from "react-bootstrap/Button";
 
 function DownloadButton({ patientId }) {
   return (

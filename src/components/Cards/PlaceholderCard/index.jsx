@@ -1,4 +1,5 @@
-import { Container, Placeholder } from "react-bootstrap";
+import Container from "react-bootstrap/Container";
+import Placeholder from "react-bootstrap/Placeholder"
 
 function PlaceholderCard() {
   return (

@@ -1,5 +1,6 @@
-import { ListGroup, ListGroupItem } from "react-bootstrap";
-import PlaceholderCard from "../PlaceholderCard";
+import ListGroup from "react-bootstrap/ListGroup";
+import ListGroupItem from "react-bootstrap/ListGroupItem"
+import PlaceholderCard from "../../Cards/PlaceholderCard";
 
 function PlaceholderList() {
   return (

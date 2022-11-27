@@ -1,9 +1,9 @@
 import { useEffect } from "react";
-import { Container } from "react-bootstrap";
 import { useSearchParams } from "react-router-dom";
-import CardList from "../../components/CardList";
-import PageFrame from "../../components/PageFrame";
 import { useMedicationApi } from "../../providers/MedicationProvider";
+import Container from "react-bootstrap/Container";
+import PageFrame from "../../components/PageComponents/PageFrame";
+import ResultList from "../../components/PageComponents/Content/ResultList";
 
 function SearchResultPage() {
   const { searchResults, isSearching, getMedicationByName } = useMedicationApi();
@@ -18,7 +18,7 @@ function SearchResultPage() {
 
   return searchResults.content?.length > 0 || isSearching ? (
     <PageFrame title="Medicamentos">
-      <CardList searchResults={searchResults} isSearching={isSearching} />
+      <ResultList searchResults={searchResults} isSearching={isSearching} />
     </PageFrame>
   ) : (
     <PageFrame>

@@ -1,10 +1,10 @@
 import { useState } from "react";
-import InputGroup from "react-bootstrap/InputGroup";
-import Button from "react-bootstrap/Button";
-import FormControl from "react-bootstrap/FormControl";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import Button from "react-bootstrap/Button";
+import FormControl from "react-bootstrap/FormControl";
+import InputGroup from "react-bootstrap/InputGroup";
 import Form from "react-bootstrap/Form";
 
 function SearchForm() {

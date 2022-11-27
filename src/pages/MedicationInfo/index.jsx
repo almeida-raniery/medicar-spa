@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
-import { Container, Row, Spinner } from "react-bootstrap";
 import { useParams } from "react-router-dom";
-import InfoPanel from "../../components/InfoPanel";
-import LoadingMessage from "../../components/LoadingMessage";
-import PageFrame from "../../components/PageFrame";
 import { useMedicationApi } from "../../providers/MedicationProvider";
+import LoadingMessage from "../../components/PageComponents/LoadingMessage";
+import PageFrame from "../../components/PageComponents/PageFrame";
+import InfoPanel from "../../components/PageComponents/Content/InfoPanel";
 
 function MedicationInfoPage() {
   const { processNumber } = useParams();

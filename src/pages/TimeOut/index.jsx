@@ -1,9 +1,9 @@
 import { faTriangleExclamation } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect } from "react";
-import { Container, Row } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { useMedicationApi } from "../../providers/MedicationProvider";
+import Container from "react-bootstrap/Container";
 
 function TimeOutPage() {
   const { isTimeOut } = useMedicationApi();
