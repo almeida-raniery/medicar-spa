@@ -1,12 +1,6 @@
 import Container from "react-bootstrap/Container";
-<<<<<<<< HEAD:src/components/PageComponents/Content/InfoPanel/index.jsx
-import DownloadButton from "../../../Buttons/DownloadButton";
-import InfoCard from "../../../Cards/InfoCard";
-
-========
 import DownloadButton from "../../Buttons/DownloadButton";
 import InfoCard from "../../Cards/InfoCard";
->>>>>>>> 7377b9b72d8a79cc07a6e5c084733bfbd797df8b:src/components/PageComponents/InfoPanel/index.jsx
 
 function InfoPanel({
   data: {
