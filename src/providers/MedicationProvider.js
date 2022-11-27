@@ -8,10 +8,12 @@ export function MedicationApiProvider({ children }) {
   const [isSearching, setIsSearching] = useState(false);
   const [isTimeOut, setIsTimeOut] = useState(false);
 
-  async function getMedicationByName(medicationName, page = 1) {
+  async function getMedicationByName(name, page = 1) {
     setIsSearching(true);
 
     try {
+      const medicationName = name || ""
+
       const resp = await RequestAPI("/pesquisar", {
         params: {
           nome: medicationName,

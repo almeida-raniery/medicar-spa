@@ -1,10 +1,20 @@
+import { useEffect } from "react";
 import { Container } from "react-bootstrap";
+import { useSearchParams } from "react-router-dom";
 import CardList from "../../components/CardList";
 import PageFrame from "../../components/PageFrame";
 import { useMedicationApi } from "../../providers/MedicationProvider";
 
 function SearchResultPage() {
-  const { searchResults, isSearching } = useMedicationApi();
+  const { searchResults, isSearching, getMedicationByName } = useMedicationApi();
+  const [searchParams] = useSearchParams();
+
+  useEffect(()=>{
+    const nome   = searchParams.get("nome");
+    const pagina = searchParams.get("pagina")
+
+    getMedicationByName(nome, pagina)
+  }, [searchParams])
 
   return searchResults.content?.length > 0 || isSearching ? (
     <PageFrame title="Medicamentos">
