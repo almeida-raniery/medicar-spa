@@ -20,6 +20,7 @@ export function MedicationApiProvider({ children }) {
       });
 
       setSearchResults({ medicationName, ...resp.data });
+      setIsTimeOut(false);
     } catch (err) {
       setIsTimeOut(true);
       console.log(err)
