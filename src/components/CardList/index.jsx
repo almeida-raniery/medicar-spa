@@ -1,27 +1,16 @@
 import { Container, ListGroup, ListGroupItem } from "react-bootstrap";
-import Card from "../Card";
 import CardListPagination from "../CardListPagination";
 import PlaceholderCard from "../PlaceholderCard";
+import PlaceholderList from "../PlaceholderList";
+import ResultsList from "../ResultsList";
 
 function CardList({ searchResults, isSearching }) {
   return (
     <Container>
       {!isSearching && searchResults.content ? (
-        <ListGroup>
-          {searchResults.content.map((medication) => (
-            <ListGroupItem className="mb-2 bg-light" key={medication.idProduto}>
-              <Card data={medication} />
-            </ListGroupItem>
-          ))}
-        </ListGroup>
+        <ResultsList content={searchResults.content} />
       ) : (
-        <ListGroup>
-          {[...Array(4)].map((e, i) => (
-            <ListGroupItem className="mb-2 bg-light" key={i}>
-              <PlaceholderCard />
-            </ListGroupItem>
-          ))}
-        </ListGroup>
+        <PlaceholderList />
       )}
       <CardListPagination />
     </Container>
