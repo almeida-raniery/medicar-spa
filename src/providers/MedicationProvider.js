@@ -25,7 +25,6 @@ export function MedicationApiProvider({ children }) {
       setIsTimeOut(false);
     } catch (err) {
       setIsTimeOut(true);
-      console.log(err)
     }
 
     setIsSearching(false);
