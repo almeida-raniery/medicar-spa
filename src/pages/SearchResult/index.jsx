@@ -6,16 +6,16 @@ import { useMedicationApi } from "../../providers/MedicationProvider";
 function SearchResultPage() {
   const { searchResults, isSearching } = useMedicationApi();
 
-  return searchResults.content?.length > 0 ? (
-    <PageFrame title="Medicamentos" >
+  return searchResults.content?.length > 0 || isSearching ? (
+    <PageFrame title="Medicamentos">
       <CardList searchResults={searchResults} isSearching={isSearching} />
     </PageFrame>
   ) : (
     <PageFrame>
       <Container>
-        <h3>
-          Sua busca não teve resultados. Verifique se o nome do medicamento foi
-          digitado corretamente.
+        <h3 className="p-3 m-3 text-justify">
+          Sua busca não obteve resultados. Verifique se o nome do medicamento
+          foi digitado corretamente.
         </h3>
       </Container>
     </PageFrame>
