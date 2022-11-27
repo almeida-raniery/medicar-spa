@@ -22,17 +22,15 @@ function TimeOutPage() {
       className="d-flex flex-column justify-content-center col-md-4"
       style={{ height: "100vh" }}
     >
-      <Row>
         <FontAwesomeIcon
-          className="display-5 text-warning"
+          className="display-5 text-warning text-center"
           icon={faTriangleExclamation}
         />
-        <h2 className="text-danger">Ops, Aconteceu um erro!</h2>
-        <h4>
-          A aplicação demorou para responder, Por favor recarregue a página e
+        <h2 className="text-danger">Ops! Aconteceu um erro.</h2>
+        <h5>
+          A aplicação demorou para responder. Por favor recarregue a página e
           tente novamente.
-        </h4>
-      </Row>
+        </h5>
     </Container>
   );
 }
