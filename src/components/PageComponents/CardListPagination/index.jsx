@@ -1,6 +1,6 @@
-import Pagination from "react-bootstrap/Pagination";
 import { useNavigate } from "react-router-dom";
-import { useMedicationApi } from "../../providers/MedicationProvider";
+import { useMedicationApi } from "../../../providers/MedicationProvider";
+import Pagination from "react-bootstrap/Pagination";
 
 function CardListPagination() {
   const navigate = useNavigate();

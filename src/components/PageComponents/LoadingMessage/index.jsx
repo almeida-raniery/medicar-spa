@@ -1,4 +1,6 @@
-import { Container, Row, Spinner } from "react-bootstrap";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row"
+import Spinner from "react-bootstrap/Spinner"
 
 function LoadingMessage() {
   return (

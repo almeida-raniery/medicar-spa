@@ -1,5 +1,6 @@
-import { Container, Row } from "react-bootstrap";
-import BackButton from "../BackButton";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row"
+import BackButton from "../../Buttons/BackButton";
 
 function PageHeader({ title }) {
   return (

@@ -1,11 +1,11 @@
 import { useEffect } from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
-import "./App.css";
-import Header from "./components/Header";
+import { useMedicationApi } from "./providers/MedicationProvider";
+import AppHeader from "./components/AppHeader";
 import MedicationInfoPage from "./pages/MedicationInfo";
 import SearchResultPage from "./pages/SearchResult";
 import TimeOutPage from "./pages/TimeOut";
-import { useMedicationApi } from "./providers/MedicationProvider";
+import "./App.css";
 
 function App() {
   const { isTimeOut } = useMedicationApi();
@@ -19,7 +19,7 @@ function App() {
 
   return (
     <div className="App">
-      <Header />
+      <AppHeader />
       <Routes>
         <Route path="/" element={<SearchResultPage />} />
         <Route

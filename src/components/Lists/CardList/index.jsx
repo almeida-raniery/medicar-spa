@@ -1,7 +1,8 @@
-import { ListGroup, ListGroupItem } from "react-bootstrap";
-import Card from "../Card";
+import ListGroup from "react-bootstrap/ListGroup";
+import ListGroupItem from "react-bootstrap/ListGroupItem"
+import Card from "../../Cards/Card";
 
-function ResultsList({content}) {
+function CardList({content}) {
   return (
     <ListGroup>
       {content.map((medication) => (
@@ -13,4 +14,4 @@ function ResultsList({content}) {
   );
 }
 
-export default ResultsList;
+export default CardList;
