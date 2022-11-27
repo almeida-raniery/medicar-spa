@@ -1,19 +1,21 @@
 import Pagination from "react-bootstrap/Pagination";
+import { useNavigate } from "react-router-dom";
 import { useMedicationApi } from "../../providers/MedicationProvider";
 
 function CardListPagination() {
-  const { searchResults, getMedicationByName } = useMedicationApi();
+  const navigate = useNavigate();
+  const { searchResults, isSearching } = useMedicationApi();
 
   function onClickNav(page){
-    getMedicationByName(searchResults.medicationName, page)
+    navigate(`/?nome=${searchResults.medicationName}&pagina=${page}`)
   }
 
   return (
     <Pagination size="lg" className="d-flex justify-content-center">
-      {!searchResults.first && <Pagination.First onClick={()=>onClickNav(1)}/>}
-      {!searchResults.first && <Pagination.Prev onClick={()=>onClickNav(searchResults.number)}/>}
-      {!searchResults.last && <Pagination.Next onClick={()=>onClickNav(searchResults.number + 2)}/>}
-      {!searchResults.last && <Pagination.Last onClick={()=>onClickNav(searchResults.totalPages)}/>}
+      {!searchResults.first && <Pagination.First disabled={isSearching} onClick={()=>onClickNav(1)}/>}
+      {!searchResults.first && <Pagination.Prev disabled={isSearching} onClick={()=>onClickNav(searchResults.number)}/>}
+      {!searchResults.last && <Pagination.Next disabled={isSearching} onClick={()=>onClickNav(searchResults.number + 2)}/>}
+      {!searchResults.last && <Pagination.Last disabled={isSearching} onClick={()=>onClickNav(searchResults.totalPages)}/>}
     </Pagination>
   );
 }
