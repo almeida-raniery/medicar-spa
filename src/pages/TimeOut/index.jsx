@@ -1,8 +1,22 @@
 import { faTriangleExclamation } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useEffect } from "react";
 import { Container, Row } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
+import { useMedicationApi } from "../../providers/MedicationProvider";
 
 function TimeOutPage() {
+  const { isTimeOut } = useMedicationApi();
+  const navigate = useNavigate();
+
+  useEffect(()=>{
+    if (!isTimeOut) {
+      navigate(-1, {
+        replace:true
+      })
+    }
+  },[])
+
   return (
     <Container
       className="d-flex flex-column justify-content-center col-md-4"
