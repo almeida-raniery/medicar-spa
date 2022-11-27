@@ -2,6 +2,8 @@
 
 Esse projeto foi criado com [Create React App](https://github.com/facebook/create-react-app).
 
+link do deploy: [https://medsearch-raniery-almeida.vercel.app](https://medsearch-raniery-almeida.vercel.app)
+
 ## Instalação das dependências
 Na pasta raíz do projeto, execute o comando `yarn` ou `npm install` para instalar as dependências do projeto antes de executá-lo.
 
