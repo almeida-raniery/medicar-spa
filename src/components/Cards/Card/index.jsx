@@ -3,7 +3,7 @@ import Container  from "react-bootstrap/Container";
 
 function Card({ data: { nomeProduto, razaoSocial, numProcesso } }) {
   return (
-    <Container className="my-2">
+    <Container data-testid={`card-${nomeProduto}`} className="my-2">
       <Link to={`/medicamento/${numProcesso}`}>
         <h4>{nomeProduto}</h4>
       </Link>
