@@ -1,6 +1,6 @@
 import Container from "react-bootstrap/Container";
-import DownloadButton from "../../Buttons/DownloadButton";
-import InfoCard from "../../Cards/InfoCard";
+import DownloadButton from "../../../Buttons/DownloadButton";
+import InfoCard from "../../../Cards/InfoCard";
 
 function InfoPanel({
   data: {
@@ -13,30 +13,20 @@ function InfoPanel({
   },
 }) {
   return (
-    <Container>
-      <InfoCard
-        data-testid="infoCard-1"
-        title="Classe Terapêutica:"
-        info={classesTerapeuticas[0]}
-      />
+    <Container data-testid="info-panel">
+      <InfoCard title="Classe Terapêutica:" info={classesTerapeuticas[0]} />
       <InfoCard title="Princípio Ativo:" info={principioAtivo} />
       <InfoCard
-        data-testid="infoCard-2"
         title="Medicamento de Referência:"
         info={medicamentoReferencia}
       />
-      <InfoCard
-        data-testid="infoCard-3"
-        title="Categoria Regulatória:"
-        info={categoriaRegulatoria}
-      />
-      <InfoCard
-        data-testid="infoCard-4"
-        title="Nome do Fabricante:"
-        info={empresa.razaoSocial}
-      />
+      <InfoCard title="Categoria Regulatória:" info={categoriaRegulatoria} />
+      <InfoCard title="Nome do Fabricante:" info={empresa.razaoSocial} />
       <Container className="text-center">
-        <DownloadButton data-testid="download-btn" patientId={codigoBulaPaciente} />
+        <DownloadButton
+          data-testid="codigoBulaPaciente"
+          patientId={codigoBulaPaciente}
+        />
       </Container>
     </Container>
   );
