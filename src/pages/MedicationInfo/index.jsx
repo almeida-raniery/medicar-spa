@@ -22,7 +22,7 @@ function MedicationInfoPage() {
 
   return medicationData.nomeComercial ? (
     <PageFrame title={medicationData.nomeComercial} >
-      <InfoPanel data={medicationData} />
+      <InfoPanel data-testid="info-panel" data={medicationData} />
     </PageFrame>
   ) : (
     <LoadingMessage />
