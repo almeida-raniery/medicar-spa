@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useMedicationApi } from "../../providers/MedicationProvider";
-import InfoPanel from "../../components/PageComponents/InfoPanel";
 import LoadingMessage from "../../components/PageComponents/LoadingMessage";
 import PageFrame from "../../components/PageComponents/PageFrame";
+import InfoPanel from "../../components/PageComponents/Content/InfoPanel";
 
 function MedicationInfoPage() {
   const { processNumber } = useParams();
