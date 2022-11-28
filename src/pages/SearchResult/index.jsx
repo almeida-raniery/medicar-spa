@@ -2,8 +2,8 @@ import { useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 import { useMedicationApi } from "../../providers/MedicationProvider";
 import Container from "react-bootstrap/Container";
-import ResultList from "../../components/PageComponents/ResultList";
 import PageFrame from "../../components/PageComponents/PageFrame";
+import ResultList from "../../components/PageComponents/Content/ResultList";
 
 function SearchResultPage() {
   const { searchResults, isSearching, getMedicationByName } = useMedicationApi();
